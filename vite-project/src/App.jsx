@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  //얘가 일만시간의 법칙 컴포넌트 화가 되어야겠죠
   return (
     <>
       <div>
