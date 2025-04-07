@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Box, Container, Modal, Typography } from "@mui/material";
 import InputForm from './components/InputForm';
+import ResultBox from './components/ResultBox';
 import ClockImage from './assets/clock.png';
 import TitleImage from './assets/title.png';
 
@@ -27,7 +28,7 @@ function App() {
     setTimeout(() => {
       setLoading(false);
       setResultVisible(true);
-    }, 1800);
+    }, 3000);
   };
 
   const copyUrl = () => {
@@ -65,6 +66,15 @@ function App() {
           time={time}
           setTime={setTime}
           handleCalculate={handleCalculate}/>
+
+        <ResultBox
+          loading={loading}
+          resultVisible={resultVisible}
+          field={field}
+          time={time}
+          onModalOpen={() => setModalOpen(true)}
+          onShare={copyUrl}
+        />
 
       </Container>
     </Box>
