@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Box, Container, Modal, Typography } from "@mui/material";
 import InputForm from './components/InputForm';
 import ResultBox from './components/ResultBox';
+import MotivationalModal from './components/MotivationalModal';
 import ClockImage from './assets/clock.png';
 import TitleImage from './assets/title.png';
 
@@ -76,6 +77,8 @@ function App() {
           onShare={copyUrl}
         />
 
+        <MotivationalModal open={modalOpen} handleClose={() => setModalOpen(false)} />
+          
       </Container>
     </Box>
   )
