@@ -4,6 +4,9 @@ import { Dialog, DialogTitle, DialogActions, Button } from "@mui/material";
 import CarDialogContent from "./CarDialogContent";
 import { updateCar } from "../api/carapi";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import IconButton from "@mui/material/IconButton";   // 보험용 -> 얘가 작성법이 바뀌었습니다.
+import EditIcon from "@mui/icons-material/Edit";
+import {Tooltip} from "@mui/material";  // 혹시 오류 뜨면 {} 하라고 말해주세요
 
 
 type FormProps = {
@@ -68,9 +71,12 @@ function EditCar({ cardata } : FormProps ) {
 
   return(
     <>
-      <Button size="small" onClick={handleClickOpen}>
-        수정 🚀
-      </Button>
+      <Tooltip title="Edit car">
+        <IconButton aria-label="edit" size="small"
+          onClick={handleClickOpen}>
+          <EditIcon fontSize="small" />
+        </IconButton>
+      </Tooltip>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Edit car</DialogTitle>
         <CarDialogContent car={car} handleChange={handleChange} />
